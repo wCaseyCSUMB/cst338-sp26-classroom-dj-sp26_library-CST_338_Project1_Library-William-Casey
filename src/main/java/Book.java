@@ -1,12 +1,19 @@
 import java.time.LocalDate;
+import java.util.Objects;
 
+/**
+ * @author William Casey
+ *
+ * Abstract: The book class is used to store data relevant to a book in order to
+ * later be implemented into the greater classes like shelf and library.
+ */
 public class Book {
-    public static final int AUTHOR_;
-    public static final int DUE_DATE_;
-    public static final int ISBN_;
-    public static final int PAGE_COUNT_;
-    public static final int SUBJECT_;
-    public static final int TITLE_;
+    public static final int ISBN_ = 0;
+    public static final int TITLE_ = 1;
+    public static final int SUBJECT_ = 2;
+    public static final int PAGE_COUNT_ = 3;
+    public static final int AUTHOR_ = 4;
+    public static final int DUE_DATE_ = 5;
     private String author;
     private LocalDate dueDate;
     private String isbn;
@@ -14,7 +21,7 @@ public class Book {
     private String subject;
     private String title;
 
-    public Book(String author, String isbn, String subject, String title, int pageCount, LocalDate dueDate) {
+    public Book(String isbn, String title, String subject, int pageCount, String author, LocalDate dueDate) {
         this.author = author;
         this.isbn = isbn;
         this.subject = subject;
@@ -72,15 +79,20 @@ public class Book {
     }
 
     public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+        Book book = (Book) object;
+        return pageCount == book.pageCount && Objects.equals(author, book.author) && Objects.equals(isbn, book.isbn) && Objects.equals(subject, book.subject) && Objects.equals(title, book.title);
 
     }
 
     public int hashCode() {
-
+        return Objects.hash(author, isbn, subject, title, pageCount);
     }
 
     public String toString() {
-
+        return title + " by " + author + " ISBN: " + isbn;
     }
 
 }
