@@ -6,7 +6,7 @@ import java.util.HashMap;
  * @author William Casey
  * Abstract: The shelf class is representative of a shelf in a library,
  * where you are able to shelve books based on their respective genres,
- * interacts with the previous classes
+ * works in tandem with the previous classes
  */
 public class Shelf {
     public final int SHELF_NUMBER_ = 0;
@@ -117,7 +117,7 @@ public class Shelf {
         Shelf compare = (Shelf) object;
         return shelfNumber == compare.shelfNumber && subject.equals(compare.subject);
     }
-
+//similar structure to the previous classes !!!!!
     public int hashCode() {
         int hash = Integer.hashCode(shelfNumber);
         hash = 31 * hash + subject.hashCode();

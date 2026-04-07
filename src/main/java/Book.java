@@ -3,7 +3,6 @@ import java.util.Objects;
 
 /**
  * @author William Casey
- *
  * Abstract: The book class is used to store data relevant to a book in order to
  * later be implemented into the greater classes like shelf and library.
  */
